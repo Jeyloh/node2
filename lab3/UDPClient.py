@@ -2,6 +2,8 @@
 #	This is a pretend client in the form of a python file.
 #
 #
+#   Author:     Jorgen Lybeck Hansen, Elaine Sajets, Daniel Eide, Bastian Strang, Jonas Dam, Christian Thorne
+#   Group:      Node
 
 # Import the socket module and all it's contents. The socket module is used
 # a lot in network communiation with python

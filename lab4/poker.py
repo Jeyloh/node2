@@ -2,8 +2,8 @@
 #   then return the best rank and declare a winner.
 #
 #
-#   Author:     Jorgen Lybeck Hansen, Elaine Sajets, 
-#   Group:      Node 
+#   Author:     Jorgen Lybeck Hansen, Elaine Sajets, Daniel Eide, Bastian Strang, Jonas Dam, Christian Thorne
+#   Group:      Node
 #   Version:    02.23.2015
 #   Notes:
 #               I followed the UDACITY: Design of Computer Programs course while trying to write

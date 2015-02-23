@@ -1,7 +1,8 @@
 # -*- coding: latin-1 -*-
 #	This is a pretend server in the form of a python file.
-#
-#
+##
+#   Author:     Jorgen Lybeck Hansen, Elaine Sajets, Daniel Eide, Bastian Strang, Jonas Dam, Christian Thorne
+#   Group:      Node
 
 from socket import *
 

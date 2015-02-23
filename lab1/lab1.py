@@ -14,16 +14,8 @@
 
 import sys
 
-# Skriv inn fullt navn på gruppemedlemene (erstatte '-' med navn slikt 'Kari Trå')
-gruppe = { 	'student1': 'Daniel Eide', \
-		'student2': 'Jørgen Lybeck Hansen', \
-           	'student3': 'Jørn Utheim-Olsen', \
-           	'student3': 'Jonas Dam', \
-           	'student3': 'Elaine Sajets', \
-           	'student3': 'Christian Fredrik Thorne', \
-           	'student3': 'Bastian Strang', \
-           	'student3': 'test 8', \
-}
+#   Author:     Jorgen Lybeck Hansen, Elaine Sajets, Daniel Eide, Bastian Strang, Jonas Dam, Christian Thorne
+#   Group:      Node 
 
 #
 #  Oppgave 1

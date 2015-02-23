@@ -3,6 +3,8 @@ import math
 import re
 from lab2_dict import INT_TO_ROMAN, ROMAN_TO_INT
 
+#   Author:     Jorgen Lybeck Hansen, Elaine Sajets, Daniel Eide, Bastian Strang, Jonas Dam, Christian Thorne
+#   Group:      Node
 
 # used in roman_to_int
 ROMAN_VALIDATE_RE = re.compile('^[M]{4,}')
