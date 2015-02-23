@@ -120,14 +120,13 @@ def roman_math(roman, romanTest):
     if roman == "XIII" and romanTest == "I":
         answer = "XIV"
 
+    return answer
 
-
-
-    print "%s + %s = %s" % (roman, romanTest, answer)
+#    print "%s + %s =q %s" % (roman, romanTest, answer)
 
 def test():
     "Run tests of lab2.py"
     assert roman_to_int("V") == 5
     assert int_to_roman(22) == "XXII"
-    assert 
+    assert roman_math("V", "II") == "VII"
     print "Test pass!"
