@@ -1,0 +1,31 @@
+Meget bra struktur på repository. 
+Sjekk hvordan dere kan utelate filene .pyc når dere oppdaterer deres 
+repository (gitignore).
+
+Dere bør levere alle arbeid som gruppe med alles navn spesifisert. 
+
+Bra at dere har referanse til hvem som har skrevet koden. 
+Legg gjerne inn også en URL til koden, hvis det finnes. 
+
+Matematiske operasjoner må implementere kun ved hjelp av romerske tall. 
+Se kildene som det er blitt referert til i forelesningslider m/notater, 
+som er i Class Fronter.
+
+Prøv å starte med en pseudokode, og så implementere koden del etter del. 
+
+Veldig bra at dere legger deres egen kode i moduler og så importerer disse
+når det er behov for det.
+
+Eksempel på utførelse:
+	>>> lab2.roman_to_int("IIIIIIIII")
+	0
+
+	Dette burde takles ved at man slår sammen de man kan: "IIIII" = "V" og 
+	"VIIII" = "IX". 
+
+Kunne det vært mulig å forenkle strukturer i lab2_dict.py noe?
+
+
+test() må designes og implementeres. 
+
+

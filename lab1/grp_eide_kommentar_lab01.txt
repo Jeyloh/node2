@@ -1,0 +1,61 @@
+Bra at dere har laget en interaktivitet.
+Men, da er det viktig å følge brukbarhetsprinsipper. 
+
+
+For eksempel, når den interaktive sesjonen starter, bør kommandolinje brukeren
+opplyses om hvilke muligheter han har. I deres versjon må brukeren bare følge
+med på hva som skjer uten å kunne gå ut av arbeidsflyten, eller å vite hvor
+lang er denne arbeidsflyten. Feilhåndtering har eller ikke nevnt eller
+implementert. Man får en TypeError når man ikke oppgir noen INN-data:
+Traceback (most recent call last):
+  File "lab1.py", line 191, in <module>
+    print "Med ord() funksjonen formateres bokstaven din til %r" %
+(ord(character))
+TypeError: ord() expected a character, but string of length 0 found
+
+Legger dette også inn som "Issue" i dere GitHub repository, så dere kan
+markere den som løst, når dere har gjort de nødvendige endringene.
+
+Det er viktig å gjennomføre testing av deres funksjoner med "assert" eller andre, mer avanserte testmoduler ("nose", for eksempel; jeg skal introdusere det i en av de neste labene).
+
+
+Det er ikke vanlig (ikke i tråd med kodestilen) å blande funksjonsdefinisjoner
+med setninger (linjer) som kaller disse funksjonene. Hvis man tester
+funksjonene i samme fil som de er definert, så er det en god praksis å gjøre
+det på slutten av filen, dvs. etter alle definisjonene. 
+
+Some nevnt tidligere, testing bør egentlig foregår i egne funksjoner (som
+test()) og kalles opp kun med en setning helt på slutten av filen eller til og
+med fra en annen fil (modularisering). 
+
+Oppsummert:
+	(1) forbedre deres interaktive grensesnitt (OBS! inngikk egentlig ikke i
+spesifikasjonen/oppgaven)
+	(2) endre kildekoden slik at den følger kodestilen i Python,
+https://www.python.org/dev/peps/pep-0008/
+	(3) flytte alle kall til funksjoner etter alle funksjonsdefinisjoner
+eller, som kan være et ennå bedre alternativ, gjennomføre tester i egen
+funksjon test() og kalle opp kun denne funksjonen på slutten filen
+
+
+Alle testene må passeres. Testen som var i koden var feil og dere må selv
+finne på en test som passer til deres funksjon. 
+assert unicodeBin('å') == '11100101' # denne er ikke korrekt
+
+
+Dere har brukt module platform og ikke psutil. Er det en spesielt grunn til
+det? I så fall burde dere forklart det i deres tekstfil samt gikk noen korte
+forklaring i kildekoden. 
+
+Deres besvarelse utenfor koden har mye forbedringspotensial. Svar på alle
+spørsmålene bør være mer detaljert og bruke en eller flere eksempler som
+illustrerer det dere ønsker å fortelle. Hva menes det "I likhet med
+matematikk..."? For å få et høyt karakter, må dere gi en så utfyllende svar på
+alle spørsmål, som mulig. 
+
+Jeg fant ingen besvarelse relatert til psutil modulen.
+
+
+mvh
+Janis
+2015-01-31 

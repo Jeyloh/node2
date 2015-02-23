@@ -1,0 +1,51 @@
+Lab01: Hva er det?
+
+1.Operasjonsprioritet
+- I likhet med matematikk, har operasjoner i python forskjellige   prioriteter. Linken lagt ut, https://docs.python.org/2/reference/expressions.html#operator-precedence, lister operasjonene fra lavest til høyest prioritet.
+
+2. One's complement
+- One's complemen av et binært tall er verdien du får når du 
+inverterer hver del av det binære tallet (bytter 1 med 0 og 0 med 1) 
+- Ex: 0110 (6) -> 1001 (-6) 
+- "If all bits in a byte are inverted by changing each 1 to 0 
+and each 0 to 1, we have formed the one’s complement of the number."
+
+1010 = 10
+0101 = -10
+
+0 & 0 = 0
+0 & 1 = 0
+1 & 0 = 0
+1 & 1 = 1
+
+0 | 0 = 0
+0 | 1 = 1
+1 | 0 = 1
+1 | 1 = 1
+
+bin(ord('a')) = 0b1100001
+bin(ord('A')) = 0b1000001
+
+Forskjellgen på bokstaven 'a' og 'A' er det tredje sifferet som bestemmer
+om den enkelte bokstaven = liten/stor bokstav, 
+
+
+
+3. Pass
+- Pass er en "null" operasjon som vil si at ingenting skjer 
+når den utføres. Brukes når man ikke vil utføre en command, 
+men syntaxen krever en statement. 
+
+Ressursjer:
+http://courses.cs.vt.edu/~csonline/NumberSystems/Lessons/OnesComplement/index.html
+
+http://www.tutorialspoint.com/python/python_pass_statement.htm
+
+https://delightlylinux.wordpress.com/2014/10/13/binary-lesson-12-ones-complement-and-twos-complement/
+
+https://wiki.python.org/moin/BitwiseOperators
+
+
+
+
+

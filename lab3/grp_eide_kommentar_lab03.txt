@@ -1,0 +1,15 @@
+Prøvde å utføre deres kode.
+
+21:31 [janisg@mylove lab3]$ python UDPClient.py
+Input lowercase sentence:åøæ
+Traceback (most recent call last):
+  File "UDPClient.py", line 28, in <module>
+    clientSocket.sendto(message.encode("utf8"),(serverName, serverPort))
+UnicodeDecodeError: 'ascii' codec can't decode byte 0xc3 in position 0: ordinal not in range(128)
+
+
+Dette var en sentral del av LAB03, så det burde dere "grave mer i". 
+
+Kommentarene i klientdelen er gode.
+
+Det er en god del arbeid som gjenstår med denne oppgaven.
