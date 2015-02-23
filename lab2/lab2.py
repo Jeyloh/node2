@@ -123,3 +123,9 @@ def roman_math(roman, romanTest):
 
     print "%s + %s = %s" % (roman, romanTest, answer)
 
+def test():
+    "Run tests of lab2.py"
+    assert roman_to_int("V") == 5
+    assert int_to_roman(22) == "XXII"
+    assert 
+    print "Test pass!"
