@@ -15,6 +15,12 @@
 import random 
 
 
+def play_poker():
+    hands=deal(4)
+    print "Delte ut {}".format(hands)
+    winner=poker(hands)
+    print "Vinneren ble {}".format(winner)
+
 def deal(numhands, n=5):
     """Creates 52 cards. Then deals  out n cards to numhands of players.
         Will raise an error if numhands*n >= 52. random.sample(52, 5*numhands) 
@@ -146,9 +152,12 @@ def test():
 	return 'tests pass'
 
 
+play_poker()
+
 if __name__ == '__main__':
     """ Checks how much time the application runs in"""
     import timeit
     time = (timeit.timeit("straight([9, 8, 7, 6, 5])", setup = "from __main__ import straight"))
     print ("Script runs in: %s ms") % (time)
+    
    
