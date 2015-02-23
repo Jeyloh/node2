@@ -1,6 +1,6 @@
 # Node
 ## Skoleprosjekt av:
-Daniel Eide, Jørgen Lybeck Hansen, Jørn Utheim-Olsen, Jonas Dam, Elaine Sajets, Christian Fredrik Thorne, Bastian Strang
+Daniel Eide, Jørgen Lybeck Hansen, Jonas Dam, Elaine Sajets, Christian Fredrik Thorne, Bastian Strang
 
 
 
