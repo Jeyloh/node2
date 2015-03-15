@@ -29,3 +29,8 @@ Kunne det vært mulig å forenkle strukturer i lab2_dict.py noe?
 test() må designes og implementeres. 
 
 
+IIIIIIIII
+
+if IIII, gjør om til IV
+if IIIII, gjør om til V
+if IIIIIIIII, gjør om til IX

@@ -84,7 +84,8 @@ def roman_to_int(input):
     # Setter alle bokstavene til uppercase
     input = input.upper()
 
-    # 
+
+    
     if ROMAN_VALIDATE_RE.match(input) or input == "NULLA":
         raise ValueError("input must be between I and MMMCMXCIX")
 
@@ -121,6 +122,16 @@ def roman_math(roman, romanTest):
         answer = "XIV"
 
     return answer
+
+# Test function to try and solve the math task. 
+def new_math(roman, roman1):
+    roman_to_int(input)
+    if roman_to_int("IIII"):
+        return "IV"
+    if roman_to_int("IIIII"):
+        return "V"
+    if roman_to_int("IIIIIIIII"):
+        return "IX"
 
 #    print "%s + %s =q %s" % (roman, romanTest, answer)
 
