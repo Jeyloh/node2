@@ -43,6 +43,8 @@ Oppgaver
 
 			Object file
 
+			gcc <fil> -o 
+
 2.
 	a.
 		Vi ønsker å lese filen byte for byte.
@@ -128,9 +130,14 @@ Oppgaver
 
 	h.
 		OPPGAVE: Hva betyr alt dette og hvordan er det relatert til ELF? 
-		I oppgave 4a får vi bin returnert etter å ha blitt 
+		I oppgave 4a får vi bin returnert etter å ha blitt
 
+		ELF = Executable and Linkable Format
 
+		Vi bruker elf for å finne filformat 
+
+ 
+f
 
 
 ## andre notater ##
@@ -144,4 +151,3 @@ Lager vi en .s fil
 
 Dette returnerer helloworld som en kompilert fil. Vi ser når vi kjører gcc --h at -S lager en compiled only fil som ikke kjører assemble eller link. 
 
-ELF = Executable and Linkable Format
