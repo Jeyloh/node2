@@ -1,0 +1,147 @@
+Oppgaver
+
+1.
+	a. 
+		helloworld.c er laget og printer ut en "Hello World!" string
+
+	b. 
+		gcc er lastet ned og brukt på helloworld.c
+
+		>>> gcc helloworld.c
+
+		Dette lager en utførbare fil ved navn a.out. 
+		For å få et annet navn på utførbare filen vår kan vi bruke
+
+		>>> gcc helloworld.c -o annet_navn
+
+		Visst vi skriver gcc --h som gir oss en liste over gcc funksjoner ser vi at
+
+		"-o <file>" Place the output into <file>
+
+		I vårt eksempel er dette -o annet_navn
+
+	c. 
+		OPPGAVE: Forklar hvordan man kan produsere test1.i, test1.s og
+		test1.o og hva disse filene illustrerer
+
+		annet_navn.i
+			C source code which should not be preprocessed
+
+			cpp helloworld.c > helloworld.i
+
+
+		annet_navn.s
+			Assembler code
+
+		annet_navn.S
+			Assembler code which must be preprocessed 
+
+			gcc -S helloworld.i
+
+		annet_navn -o
+			Lets you name the file yourself
+
+			Object file
+
+2.
+	a.
+		Vi ønsker å lese filen byte for byte.
+
+		Vi tar vår binary kode som består av totallsystemet og bruker read() funksjonen for å lese den byte for byte. En byte vil si 8 siffere i binary koden, altså 8 bits. 
+
+		Hvert siffer er en bit. Hver 8 bit del er en byte:
+		10110100 10101010 10000101 01110101 01101001
+
+	b.
+		For å gjøre dette brukter vi python sin modul struct. Denne hjelper oss å lese binære filer byte for byte.
+
+		>>> import struct
+
+	c. 
+		>>> f = open("annet_navn", "rb")
+
+		Denne linjen lager variabelen f og legger til en open() funksjon som åpner vår utførbare fil med "rb" tilgang.
+
+	d. 
+		rb = read binary
+
+3.
+	Vi bruker modulen struct(): https://docs.python.org/2/library/struct.html
+
+	>>> bin = struct.unpack(‘B’, f.read(1))[0]
+	>>> print bin
+	127 
+
+	a.
+		en stor 'B' står for binary. Vi henter den fra struct modulen for å la lese filen 
+		Går ut på konversjonen av C og Python.
+
+	b.
+		f.read(1) er en funksjon i open() som går gjennom filen og leser en byte (8 bits, eller siffere) av koden. 
+
+		struct() returnerer en tuple. [0] ber oss returnere den første verdien i tuplen vår. Dette betyr at f.read(1))[0] vil lese den første byten (8 sifferene
+
+	c. 
+		unpack() returnerer en string som er byte
+
+		struct.unpack(fmt, bytes)
+		Unpack the bytes (presumably packed by pack(fmt, ...)) according to the given format. The result is a tuple even if it contains exactly one item. The bytes must contain exactly the amount of data required by the format (len(bytes) must equal calcsize(fmt)).
+
+	d. 
+		>>> print bin
+		127
+
+		bin sin verdi er 127. 
+
+4.
+	a.
+		>>> bin >> 7 
+		0
+
+		Hva skjer her?
+		x >> y (127 >> 7)
+		Returns x with the bits shifted to the right by y places. This is the same as //'ing x by 2**y
+
+	b.
+		>>> bin >> 7 & 1
+		0
+
+	c. 
+		>>> bin >> 6,5 & 1,0
+		(1, 1, 0)
+
+	d.
+		>>> bin >> 8
+		0
+
+	e. 
+		>>> [str(bin >> x & 1) for x in (7,6,5,4,3,2,1,0)]
+		['0', '1', '1', '1', '1', '1', '1', '1']
+
+	f. 
+		>>> ''.join([str(bin >> x & 1) for x in (7,6,5,4,3,2,1,0)])
+		'01111111'
+
+	g.
+		>>> hex(bin)
+		'0x7f'
+
+	h.
+		OPPGAVE: Hva betyr alt dette og hvordan er det relatert til ELF? 
+		I oppgave 4a får vi bin returnert etter å ha blitt 
+
+
+
+
+## andre notater ##
+
+Hver eneste fil har en egen spesifikk header
+Lager vi en .s fil 
+	>> gcc -S helloworld.c
+	>> ls
+	helloworld.s
+	>> cat helloworld.s
+
+Dette returnerer helloworld som en kompilert fil. Vi ser når vi kjører gcc --h at -S lager en compiled only fil som ikke kjører assemble eller link. 
+
+ELF = Executable and Linkable Format
