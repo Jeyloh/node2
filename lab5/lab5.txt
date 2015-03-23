@@ -7,7 +7,7 @@ Oppgaver
 	b. 
 		gcc er lastet ned og brukt på helloworld.c
 
-		>>> gcc helloworld.c
+		>>> cpp helloworld.c
 
 		Dette lager en utførbare fil ved navn a.out. 
 		For å få et annet navn på utførbare filen vår kan vi bruke
@@ -132,49 +132,108 @@ Oppgaver
 		OPPGAVE: Hva betyr alt dette og hvordan er det relatert til ELF? 
 		I oppgave 4a får vi bin returnert etter å ha blitt
 
-		ELF = Executable and Linkable Format
+		ELF = Executable and Linkable Format. En executable binary.
 
 		Vi bruker elf for å finne filformat 
 
-	f.
+	i. Oppgave 3 andre gang:
+		>>> print bin 
+		69
+
+	j. Dette skjer fordi vi leser gjennom filen byte for byte, og dette neste byte.
 
 
+ 
+	i. Oppgave 3 andre gang:
+		>>> print bin 
+		69
 
-Oppgave 8:
-
-Vi skal liste opp alle python shell prosessene som er aktive nå. Visst vi bare bruker
->>> ps -aef
-vil vi få opplyst alle prosessene ufiltrert. Vi ønsker ikke dette. Derfor legger vi til "| grep {process-name" som filter.
-
->>> ps -aef | grep {process-name}
-jorgenl+  8543  8508  0 14:38 pts/4    00:00:00 grep --colour=auto {process-name}
->>> ps -aef | grep httpd
-jorgenl+  8554  8508  0 14:38 pts/4    00:00:00 grep --colour=auto httpd
-
-Oppgave 9:
->>> ls 
-Dette vil liste opp alle filer i nåværende directory
-
->>> ls -l 
-Dette gir oss en detaljert liste over alle filer i nåværende directory
-
->>> ls -l /proc/<pid>/fd
-Dette gir oss en detaljer over åpne prosesser. Vi aksesserer de med proc og bruker <PID> som er en process identifier. PID brukes aktivt for å gi unike IDer til åpne prosesser. 
-
-Oppgave 10:
-I python shell kan vi bruke metoden .close() eller .truncate(). Disse vil lukke en fil som kjører. Det er vanlig å ville lukke filer som vi bruker i programmering så ikke alle processene skal bruke minne mens vi gjør andre ting. 
-
-I vårt eksempel bruker vi f.close() for å lukke f. 
+	j. Dette skjer fordi vi leser gjennom filen byte for byte, og dette neste byte.
 
 
-10.OPPGAVE: Prøv å finne ut hvordan du kan lukke fil i pyton shell, gjør det og
-sjekk igjen hvilke filer som python shell fortsatt holder fil-deskriptor til;
-Forklar.
-11.Hvis filen er lukket, gjør punktene 2) til 6) på nytt, men bruk denne gangen
-en mindre bildefil i jpg, jpeg format. Forklar.
-a. Kan dere nå si noe om hvordan et miljø (OS) som gir mulighet til å
-utføre programmer, bør designes (i store trekk)?
-b. Hvordan hadde dere designet et python program som kunne utføre
+5. Sjekk ELF spesifikasjon og finn ut hvilken Python funksjon du kan bruke for å
+illustrere best, det som står i ELF spesifikasjonen
+
+6.
+	a. 
+	Tallene vi finner representerer ELF sine "magic numbers". om vi bruker hexbin og ord funksjonene til å konvertere tallene vi får finner vi: 
+
+		>>> hex(127)
+		'0x7f'
+		>>> bin = struct.unpack("B",f.read(1))[0]
+		>>> print bin
+		69
+		>>> ord("E")
+		69
+		>>> bin = struct.unpack("B",f.read(1))[0]
+		>>> print bin
+		76
+		>>> ord("L")
+		76
+		>>> bin = struct.unpack("B",f.read(1))[0]
+		>>> print bin
+		70
+		>>> ord("F")
+		70
+
+	b. Magic Numbers.
+
+7.
+	a. 
+	Nå har vi kommet oss forbi ELF sine magic numbers. Så disse verdiene er selve innholdet i filen vi leser, og disse kan ikke leses av python, så de kommer ut som rot.
+
+	>>> bin = struct.unpack("B",f.read(1))[0]
+	>>> print bin
+	2
+	>>> bin = struct.unpack("B",f.read(1))[0]
+	>>> print bin
+	1
+
+	b. 
+	f.read(1))[5] (eller kanskje f.seek??)
+
+8.
+
+	Vi skal liste opp alle python shell prosessene som er aktive nå. Visst vi bare bruker
+	>>> ps -aef
+	vil vi få opplyst alle prosessene ufiltrert. Vi ønsker ikke dette. Derfor legger vi til "| grep {process-name" som filter.
+
+	>>> ps -aef | grep {process-name}
+	jorgenl+  8543  8508  0 14:38 pts/4    00:00:00 grep --colour=auto {process-name}
+	>>> ps -aef | grep httpd
+	jorgenl+  8554  8508  0 14:38 pts/4    00:00:00 grep --colour=auto httpd
+
+9.
+	>>> ls 
+	Dette vil liste opp alle filer i nåværende directory
+
+	>>> ls -l 
+	Dette gir oss en detaljert liste over alle filer i nåværende directory
+
+	>>> ls -l /proc/<pid>/fd
+	Dette gir oss en detaljer over åpne prosesser. Vi aksesserer de med proc og bruker <PID> som er en process identifier. PID brukes aktivt for å gi unike IDer til åpne prosesser. 
+
+	Oppgave 10:
+	I python shell kan vi bruke metoden .close() eller .truncate(). Disse vil lukke en fil som kjører. Det er vanlig å ville lukke filer som vi bruker i programmering så ikke alle processene skal bruke minne mens vi gjør andre ting. 
+
+	I vårt eksempel bruker vi f.close() for å lukke f. 
+
+10.
+	I python shell kan vi bruke metoden .close() eller .truncate(). Disse vil lukke en fil som kjører. Det er vanlig å ville lukke filer som vi bruker i programmering så ikke alle processene skal bruke minne mens vi gjør andre ting. 
+
+	I vårt eksempel bruker vi f.close() for å lukke f. 
+
+11.
+
+	Hvis filen er lukket, gjør punktene 2) til 6) på nytt, men bruk denne gangen
+	en mindre bildefil i jpg, jpeg format. Forklar.
+	
+	a. Kan dere nå si noe om hvordan et miljø (OS) som gir mulighet til å
+	utføre programmer, bør designes (i store trekk)?
+		Når et OS designes er det viktig med mulighet for å åpne utførbare filer og ha maskinkraft til å fokusere på den åpne utførbare filen (f. eks exe). Når programmet er filen er ferdigbrukt må OS'et tilby en .close() funksjon akkurat som vi gjorde med filen vår i denne LABen. 
+	
+	b. Hvordan hadde dere designet et python program som kunne utføre en ELF fil?
+		Jeg tenker som forklart i oppgaven over at programmet må kunne åpne filen, behandle binaries også lukke filen etter bruk. 
 
 
 
