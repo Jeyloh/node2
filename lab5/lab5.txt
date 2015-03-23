@@ -136,8 +136,46 @@ Oppgaver
 
 		Vi bruker elf for å finne filformat 
 
- 
-f
+	f.
+
+
+
+Oppgave 8:
+
+Vi skal liste opp alle python shell prosessene som er aktive nå. Visst vi bare bruker
+>>> ps -aef
+vil vi få opplyst alle prosessene ufiltrert. Vi ønsker ikke dette. Derfor legger vi til "| grep {process-name" som filter.
+
+>>> ps -aef | grep {process-name}
+jorgenl+  8543  8508  0 14:38 pts/4    00:00:00 grep --colour=auto {process-name}
+>>> ps -aef | grep httpd
+jorgenl+  8554  8508  0 14:38 pts/4    00:00:00 grep --colour=auto httpd
+
+Oppgave 9:
+>>> ls 
+Dette vil liste opp alle filer i nåværende directory
+
+>>> ls -l 
+Dette gir oss en detaljert liste over alle filer i nåværende directory
+
+>>> ls -l /proc/<pid>/fd
+Dette gir oss en detaljer over åpne prosesser. Vi aksesserer de med proc og bruker <PID> som er en process identifier. PID brukes aktivt for å gi unike IDer til åpne prosesser. 
+
+Oppgave 10:
+I python shell kan vi bruke metoden .close() eller .truncate(). Disse vil lukke en fil som kjører. Det er vanlig å ville lukke filer som vi bruker i programmering så ikke alle processene skal bruke minne mens vi gjør andre ting. 
+
+I vårt eksempel bruker vi f.close() for å lukke f. 
+
+
+10.OPPGAVE: Prøv å finne ut hvordan du kan lukke fil i pyton shell, gjør det og
+sjekk igjen hvilke filer som python shell fortsatt holder fil-deskriptor til;
+Forklar.
+11.Hvis filen er lukket, gjør punktene 2) til 6) på nytt, men bruk denne gangen
+en mindre bildefil i jpg, jpeg format. Forklar.
+a. Kan dere nå si noe om hvordan et miljø (OS) som gir mulighet til å
+utføre programmer, bør designes (i store trekk)?
+b. Hvordan hadde dere designet et python program som kunne utføre
+
 
 
 ## andre notater ##
@@ -150,4 +188,5 @@ Lager vi en .s fil
 	>> cat helloworld.s
 
 Dette returnerer helloworld som en kompilert fil. Vi ser når vi kjører gcc --h at -S lager en compiled only fil som ikke kjører assemble eller link. 
+
 
