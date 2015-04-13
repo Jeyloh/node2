@@ -34,7 +34,7 @@ Host: http://www-net.cs.umass.edu
 Connection: Keep-alive
 - Dette er en melding som er sendt fra en enhet til en annen for se at linken mellom de to enhetene kjører, eller for å forhindre at denne linken brytes
 Cache-Control: Max-age=0
-- Den sjekker om du har cache fra før av lagret I nettleseren og kan tvinge ny cache om det kommer en ny oppdatering til nettsiden. Det er ofte gitt en tid før du trenger å få en ny cache. Hvis meldingen er http 200 ok har den hentet cache om det står not modified 304 har den hentet cachen du har fra før av
+- Den sjekker om du har cache fra før av lagret I nettleseren og kan tvinge ny cache om det kommer en ny oppdatering til nettsiden. Det er ofte gitt en tid før du trenger å få en ny cache. Hvis meldingen er http 200 ok har den hentet en ny oppdatert cache, om det står not modified 304 har den hentet cachen du har lagret/brukt fra før av
 Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
 - Forteller oss om hvilkne content-typer som er akseptert
 User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/40.0.2214.115 Safari/537.36
@@ -60,6 +60,9 @@ Connection: keep-alive\r\n
 - Dette er en melding som er sendt fra en enhet til en annen for se at linken mellom de to enhetene kjører, eller for å forhindre at denne linken brytes
 Time since request: 0.260645000 seconds
 - Tiden det tok å få et svar fra vi sendte HTTP GET forespørselen.
+
+Kilder til oppgave 1b:
+http://en.wikipedia.org/wiki/List_of_HTTP_header_fields
 
 Oppgave 2
 
