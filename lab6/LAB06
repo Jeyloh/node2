@@ -63,6 +63,7 @@ Time since request: 0.260645000 seconds
 
 Kilder til oppgave 1b:
 http://en.wikipedia.org/wiki/List_of_HTTP_header_fields
+http://www.feedthebot.com/ifmodified.html
 
 Oppgave 2
 
@@ -113,6 +114,8 @@ The request was a valid request, but the server is refusing to respond to it. Un
 404 Not Found
 The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
 
+Kilder brukt i oppgave 2:
+http://www.feedthebot.com/ifmodified.html 
 Oppgave 3
 
 Som opplyst får vi ikke en login boks fra denne linken og oppgaven kan ikk løses.
