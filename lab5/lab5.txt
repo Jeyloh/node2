@@ -153,6 +153,7 @@ Oppgaver
 
 5. Sjekk ELF spesifikasjon og finn ut hvilken Python funksjon du kan bruke for å
 illustrere best, det som står i ELF spesifikasjonen
+	____SVAR__HER_____
 
 6.
 	a. 
