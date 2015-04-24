@@ -137,14 +137,17 @@ print "I binær er den %r" % (ascii8Bin(letter))
 
 print "\nSkriv ett ord med max 6 bokstaver, kan være store eller små bokstaver:"
 string = raw_input("> ")
+parted = [letter for letter in string]
 
 def transferBin(string): 
 	# vi lager variabel 'l' til en liste av string
 	l = list(string)
-	# itererer over l for å finne c. 
+	# itererer over l for å finne c.
+	i = 0 
 	for c in l:
 		# skriv ut den binære representasjon av hvert tegn (bruk ascii8Bin funksjonen din)
-		print "Den binære representasjonen for bokstavene i ordet ditt er %s" % (ascii8Bin(c)) 
+		print "Den binære representasjonen for '%s' i ordet ditt er %s" % (parted[i], ascii8Bin(c))
+		i = i + 1
 # bruk funksjonen vår
 transferBin(string)
 

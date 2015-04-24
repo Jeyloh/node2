@@ -129,7 +129,7 @@ def card_ranks(cards):
             ranks.append(assignValue[r])
         else:
             ranks.append(int(r))
-    #ranks = [assignValue[r] if r in assignValue else int(r) for r,s in cards]
+    #ranks = [assignValue[] if r in assignValue else int(r) for r,s in cards]
     ranks.sort(reverse=True)
     return [5, 4, 3, 2, 1] if (ranks == [14, 5, 4, 3, 2]) else ranks
 
@@ -170,7 +170,7 @@ def test():
 
 
 
-play_poker()
+
 
 if __name__ == '__main__':
     """ Checks how much time the application runs in"""
@@ -179,3 +179,4 @@ if __name__ == '__main__':
     print ("Script runs in: %s ms") % (time)
     
    
+play_poker()

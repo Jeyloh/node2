@@ -4,7 +4,6 @@
 #   Group:      Node
 #
 
-import math 
 import re
 from lab2_dict import INT_TO_ROMAN, ROMAN_TO_INT
 
@@ -132,6 +131,73 @@ def new_math(roman, roman1):
         return "V"
     if roman_to_int("IIIIIIIII"):
         return "IX"
+
+# Dictionary for addition
+subs = {"IV": "IIII",
+        "IX": "VIIII",
+        "XL": "XXXX",
+        "XC": "LXXXX",
+        "CD": "CCCC",
+        "CM": "DCCCC"
+}
+
+
+
+#dict.iteritems(): Return an iterator over the dictionary’s (key, value) pairs.
+def addition(param1, param2):
+    for key, value in subs.iteritems():
+        if param1 == key:
+            param1 = value
+        elif param2 == key:
+            param2 = value
+    temp = param1 + param2
+    list(temp)
+    print "variable temp is:"
+    print temp
+
+
+    result = []
+
+    for a in temp:
+        if a == "V":
+            result.append("I"*5)
+        elif a == "X":
+            result.append("I"*10)
+        elif a == "L":
+            result.append("I"*50)
+        else:
+            result.append(a)
+
+
+    i = 0
+    for x in result:
+        i = i + 1
+
+    print "variable result is:"
+    result = ''.join(result)
+    print result
+
+#funker ikke
+    for b in result:
+        if b == "I"*5:
+            b = "V"
+        elif b == "I":
+            b = "I"
+
+    print b
+
+# Trenger en kode som tar alle "I" fra lista, deler de opp og teller de. Begynn med 
+# if result "I"*1000, result = "M", if result "I"*50, result = "L" osv.
+ 
+
+
+
+
+
+
+
+
+
 
 #    print "%s + %s =q %s" % (roman, romanTest, answer)
 
