@@ -196,12 +196,12 @@ print "\nSkriv en bokstav, gjerne Æ Ø eller Å. Den kan være stor eller liten
 char = raw_input("> ")
 def unicodeBin(character):
 	utf8_byte_array = bytearray(format(character))
-	uba = []
+	temp = []
 	# Itererer gjennom det formaterte unicodesumbolet
 	for n in range (len(format(character))):
-		uba.append("{0:08b}".format(utf8_byte_array[n]))
+		temp.append("{0:08b}".format(utf8_byte_array[n]))
 		# konverterer listen til en string bestående av den binære koden til symbolet
-		uni_bin = ' '.join(uba)
+		uni_bin = ' '.join(temp)
 	return uni_bin
 print unicodeBin(char)
 
@@ -223,21 +223,16 @@ print unicodeBin(char)
 #	Kan dere skrive en test for denne funksjonen?
 #	Hvilke andre muligheter har man for å finne informasjon om maskinvare i GNU/Linux?
 #
-# Kilder: http://amitsaha.github.io/site/notes/articles/python_linux/article.html
+#
 
-import platform
+			"""OPPGAVE 9 HER"""
 
 
-def printSysInfo():
 
-	print "\nSystem info:"
-	print "OS: " +platform.uname()[0]
-	print "User Name: " +platform.uname()[1]
-	print "Distribution: %s" %(platform.linux_distribution(), )
 
-#   IMPORT PSUTIL OG IMPLEMENTER DEN
 
-printSysInfo()
+
+
 
 
 def test():
@@ -247,9 +242,8 @@ def test():
 	assert ascii8Bin('a') == '01100001'
 	assert ascii8Bin('A') == '01000001'
 	assert transferBin('l') == '6c'
-#   assert transferHex('a') == 61
 	assert unicodeBin('å') == '11000011 10100101'
-	# Dine egne tester
+	#Implementer tester her
 	return "Testene er fullført uten feil."
 
 
