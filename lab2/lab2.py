@@ -5,6 +5,7 @@
 #
 
 import re
+import math
 from lab2_dict import INT_TO_ROMAN, ROMAN_TO_INT
 
 # used in roman_to_int
@@ -102,108 +103,90 @@ def roman_to_int(input):
 
     return result
 
+  
 
-"""
-Denne funksjonen tar to string verdier og legger de sammen. Det blir feil ved 
-f. eks:
-"VIII" + "I" = "VIIII"
-"""
-def roman_math(roman, romanTest):
+def addition(roman1, roman2):
 
-    answer = "".join([roman,romanTest])
+    substitution = {    "IV": "IIII",
+                        "IX": "VIIII",
+                        "XL": "XXXX",
+                        "XC": "LXXXX",
+                        "CD": "CCCC",
+                        "CM": "DCCCC"
+    }
+
+    for key, value in substitution.iteritems():
+        if roman1 == key:
+            roman1 = value
+        elif roman2 == key:
+            roman2 = value
+
+    temp = "".join([roman1, roman2])
+
+
+#    if temp.contains(not "M"):
+#        raise ValueError('You need to use roman letters.')
+
+    roman_result = []
+
+    roman_list = "MDCLXVI"
+    for char in roman_list:
+        for item in temp:
+            if item == char:
+                roman_result.append(item)
+                
+
+    return(revert("".join(roman_result)))
 
     
-    if roman == "VIII" and romanTest == "I":
-        answer = "IX"
-    if roman == "III" and romanTest == "I":
-        answer = "IV"
-    if roman == "XIII" and romanTest == "I":
-        answer = "XIV"
 
-    return answer
+def revert(rom_num):
+    
 
-# Test function to try and solve the math task. 
-def new_math(roman, roman1):
-    roman_to_int(input)
-    if roman_to_int("IIII"):
-        return "IV"
-    if roman_to_int("IIIII"):
-        return "V"
-    if roman_to_int("IIIIIIIII"):
-        return "IX"
+    #rom_num = rom_num.replace("DD", "M")
 
-# Dictionary for addition
-subs = {"IV": "IIII",
-        "IX": "VIIII",
-        "XL": "XXXX",
-        "XC": "LXXXX",
-        "CD": "CCCC",
-        "CM": "DCCCC"
-}
+    replace_list = {
+                    "IIIII": "V",
+                    "IIII": "IV",
+                    "VIIIII": "X",
+                    "VIIIII": "IX",
+                    "VV": "X",
+                    "XXXXX": "L",
+                    "XXXX": "XL",
+                    "LXXXXX": "C",
+                    "LXXXX": "XC",
+                    "CCCCC": "D",
+                    "CCCC": "CD",
+                    "DCCCCC": "M",
+                    "DCCCC": "CM",
+                    "DD": "M"
+    }
 
+    for key in replace_list.iteritems():
+        if rom_num == key:
+            rom_num = value
 
-
-#dict.iteritems(): Return an iterator over the dictionary’s (key, value) pairs.
-def addition(param1, param2):
-    for key, value in subs.iteritems():
-        if param1 == key:
-            param1 = value
-        elif param2 == key:
-            param2 = value
-    temp = param1 + param2
-    list(temp)
-    print "variable temp is:"
-    print temp
+    return rom_num
 
 
-    result = []
+def subtraction(rom1, rom2):
+    temp1 = roman_to_int(rom1) 
+    temp2 = roman_to_int(rom2)
 
-    for a in temp:
-        if a == "V":
-            result.append("I"*5)
-        elif a == "X":
-            result.append("I"*10)
-        elif a == "L":
-            result.append("I"*50)
-        else:
-            result.append(a)
+    temp3 = temp1 - temp2
 
+    return int_to_roman(temp3)
 
-    i = 0
-    for x in result:
-        i = i + 1
-
-    print "variable result is:"
-    result = ''.join(result)
-    print result
-
-#funker ikke
-    for b in result:
-        if b == "I"*5:
-            b = "V"
-        elif b == "I":
-            b = "I"
-
-    print b
-
-# Trenger en kode som tar alle "I" fra lista, deler de opp og teller de. Begynn med 
-# if result "I"*1000, result = "M", if result "I"*50, result = "L" osv.
- 
-
-
-
-
-
-
-
-
-
-
-#    print "%s + %s =q %s" % (roman, romanTest, answer)
 
 def test():
-    "Run tests of lab2.py"
-    assert roman_to_int("V") == 5
-    assert int_to_roman(22) == "XXII"
-    assert roman_math("V", "II") == "VII"
-    print "Test pass!"
+    pass 
+
+
+resources =" +\
+    https://docs.python.org/2/tutorial/datastructures.html +\
+    http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/ +\
+    +\
+    +\
+    +\
+    +\
+"
