@@ -1,0 +1,61 @@
+Oppgave
+Tenk iterativt og følg systemutviklingssyklus. Oppgaven skal hjelpe dere til å forstå
+grunnleggende nettverkskommunikasjon og hvordan to uavhengige prosesser kan
+samarbeide.
+
+
+1. Studer kapittel 2.7 fra boken til Kurose og Ross, “Computer Networking” (jeg
+refererer her til den 6. utgaven). Hele kapittel 1 og 2 kan være aktuelt å
+studere for å få en bedre forståelse av grunnprinsipper for
+nettverkskommunikasjon.
+
+	Grunnoppsettet er der. Sockets er satt til UDP og bruker like porter for å fullføre oppgaven som er å sende over strings til hverandre.
+
+
+2. Basert på kodeeksempler sett opp en kodebase for en klient-tjener
+(client-server) applikasjon basert på UDP. Denne grunnapplikasjonen skal
+kunne sende en melding fra klienten til tjeneren skrevet med små bokstaver
+(eng. lowercase), tjeneren skal gjøre denne meldingen om til store bokstaver
+(eng. uppercase) og sende den tilbake til klienten. Klienten skal da kunne
+skrive returnmelding på kommandolinje. Kommenter i koden der det er
+hensiktsmessig. Følg kodestilen til Python programmeringsspråket (se PEP8
+https://www.python.org/dev/peps/pep-0008/).
+
+	Sockets er satt opp i form av en client og en server. Koden som gjør selve kodingen for å gjøre raw_input stringen til binær kode, gi den uppercase verdi også tilbake til unicode er som følger: 
+
+	# Decodes message to utf8, change it to uppercase and then encode it back to be sent again
+	modifiedMessage = message.decode('utf-8').upper().encode('utf-8')
+
+
+
+
+3. Finn ut hvordan blir bokstavene i meldingen presentert (binært) når de
+sendes over fra den ene prosessen (klienten) til den andre prosessen
+(tjeneren). For å gjøre det, må dere installere Wireshark.
+(https://www.wireshark.org/). Velg enkle eksempler (start med kun en
+bokstav) og studer om det finnes en sammenheng mellom den binære
+presentasjonen av små og store bokstaver? Forklar.
+
+
+4. Sjekk om applikasjonen fungerer for tegn utover ASCII tegnsettet og forklar
+hva som skjer. Gjør om applikasjonen slik at den kan overføre hvilke som
+helst tegn fra UNICODE karaktersettet. Finnes det en sammenheng mellom
+den binære representasjonen for små og store bokstaver også i dette tilfelle?
+Forklar.
+
+
+5. Implementer din egen metode i for overføring fra små til store bokstaver
+basert på manipulasjon av den binære representasjonen til tegn. Bruk
+rutiner fra LAB1 (operasjoner på bit). Implementer tester for alle rutiner i en
+egen funksjon test() ved bruk av assert setninger.
+
+
+6. Bruk funksjoner fra deres “romerske” modulen for å implementere denne
+fuksjonaliteten i en klient-tjener applikasjon. For å få det til, må dere endre
+grensesnitt for INNDATA (i klienten). Her kan dere bruke den innebygde
+funksjonen i Python raw_input(). Pass på at dere tester for alle eventuelle
+feil, som en kommandolinje bruker potensielt kan gjøre.
+
+
+7. Burde dere bruke TCP protokollen for dere applikasjon i dette tilfelle? Forklar
+hvorfor, eventuelt hvorfor ikke.

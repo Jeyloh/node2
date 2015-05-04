@@ -77,7 +77,7 @@ def bitXor(x, y):
 	return x^y
 print bitXor(0, 1)
 
-#
+#https://docs.python.org/2/tutorial/datastructures.html
 #  Oppgave 4
 #    bitOr - x|y
 #    Eksempel: bitOr(0, 1) = 1
@@ -201,7 +201,7 @@ def unicodeBin(character):
 	for n in range (len(format(character))):
 		temp.append("{0:08b}".format(utf8_byte_array[n]))
 		# konverterer listen til en string bestående av den binære koden til symbolet
-		uni_bin = ' '.join(temp)
+		uni_bin = ''.join(temp)
 	return uni_bin
 print unicodeBin(char)
 
@@ -225,7 +225,6 @@ print unicodeBin(char)
 #
 #
 
-			"""OPPGAVE 9 HER"""
 
 
 
@@ -234,7 +233,7 @@ print unicodeBin(char)
 
 
 
-
+"""
 def test():
 	assert bitAnd(6, 5) == 4
 	assert bitXor(4, 5) == 1
@@ -251,3 +250,4 @@ def test():
 print test()
 		
 
+"""

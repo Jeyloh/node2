@@ -1,4 +1,4 @@
-#   A script that simulates a poker game. Input how many players and how many cards in each hand, 
++#   A script that simulates a poker game. Input how many players and how many cards in each hand, 
 #   then return the best rank and declare a winner.
 #
 #
@@ -156,7 +156,7 @@ def test():
     assert card_ranks(sf) == [10, 9 , 8, 7, 6]
     assert card_ranks(fk) == [9, 9, 9, 9, 7]
     assert card_ranks(fh) == [10, 10, 10, 7, 7]
-    """
+"""
     assert poker([sf, fk, fh]) == sf
     assert poker([fk, fh]) == fk
     assert poker([fh, fh]) == fh
@@ -164,8 +164,8 @@ def test():
     assert poker([sf] + 99*[fh]) == sf  #supervalue test - 100hands
     assert hand_rank(sf) == (8,10)
     assert hand_rank(fk) == (7,9,7)
-    assert hand_rank(fh) == (6,10,7)
-    """
+    assert hand_rank(fh) == (6,10,7)"""
+    
     return 'tests pass'
 
 

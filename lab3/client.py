@@ -25,7 +25,7 @@ message = raw_input('Input lowercase sentence:')
 # We use our clientSocket (that is a variable for socket module) and call the
 # sendto() function from socket to send the message. As params we use the
 # message to send, serverName and serverPort
-clientSocket.sendto(message.encode("utf8"),(serverName, serverPort))
+clientSocket.sendto(message,(serverName, serverPort))
 
 # When we receive a packet the message is stored in modifiedMessage and
 # the packets source address is stored in serverAddress. 

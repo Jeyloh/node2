@@ -103,10 +103,10 @@ def roman_to_int(input):
 
     return result
 
-  
 
 def addition(roman1, roman2):
 
+    # Replace subtractives
     substitution = {    "IV": "IIII",
                         "IX": "VIIII",
                         "XL": "XXXX",
@@ -115,56 +115,63 @@ def addition(roman1, roman2):
                         "CM": "DCCCC"
     }
 
+    # Go through substitution and replace key with value for roman1 and roman2
     for key, value in substitution.iteritems():
         if roman1 == key:
             roman1 = value
         elif roman2 == key:
             roman2 = value
 
+    # Variable temp joins roman1 and roman2 after replacing substitutes. "IXIII"
     temp = "".join([roman1, roman2])
 
 
-#    if temp.contains(not "M"):
-#        raise ValueError('You need to use roman letters.')
-
+    # Create a list to append 
     roman_result = []
 
-    roman_list = "MDCLXVI"
-    for char in roman_list:
+    # A string where we can find each roman letter
+    roman_letters = "MDCLXVI"
+    # If our string roman_letters 
+    for char in roman_letters:
+        # and our string temp 
         for item in temp:
+            # contains the same value
             if item == char:
+                # append that item
                 roman_result.append(item)
-                
+ 
+    # https://docs.python.org/2/tutorial/datastructures.html  <- 5.1.4 List Comprehension
 
+    # We take our roman_result list with the appended items and joins them to a string
+    # Then we call our own revert() function on this string to give us the answer.
     return(revert("".join(roman_result)))
 
-    
 
 def revert(rom_num):
-    
 
-    #rom_num = rom_num.replace("DD", "M")
-
+    # Create a list with necessary replacements to do additions.
     replace_list = {
                     "IIIII": "V",
                     "IIII": "IV",
                     "VIIIII": "X",
-                    "VIIIII": "IX",
+                    "VIIII": "IX",
                     "VV": "X",
                     "XXXXX": "L",
                     "XXXX": "XL",
                     "LXXXXX": "C",
                     "LXXXX": "XC",
+                    "LL": "C",
                     "CCCCC": "D",
                     "CCCC": "CD",
                     "DCCCCC": "M",
                     "DCCCC": "CM",
-                    "DD": "M"
+                    "DD": "M",
     }
 
-    for key in replace_list.iteritems():
-        if rom_num == key:
-            rom_num = value
+    # for keys and values in replace_list
+    for key, value in replace_list.iteritems():
+        # change key with values in rom_num 
+        rom_num = rom_num.replace(key, value)
 
     return rom_num
 
@@ -179,14 +186,23 @@ def subtraction(rom1, rom2):
 
 
 def test():
-    pass 
+    assert roman_to_int("MDCCLXVI") == 1706
+    assert int_to_roman(3910) == "MMMCMX"
+    assert addition("XVI", "MCIIII") == "MCXX"
+
+    print "Test passed!"
+
+test()
+
+    
 
 
-resources =" +\
+"""
+resources = +\
     https://docs.python.org/2/tutorial/datastructures.html +\
     http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/ +\
     +\
     +\
     +\
     +\
-"
+"""
