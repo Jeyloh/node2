@@ -137,17 +137,20 @@ print "I binær er den %r" % (ascii8Bin(letter))
 
 print "\nSkriv ett ord med max 6 bokstaver, kan være store eller små bokstaver:"
 string = raw_input("> ")
-parted = [letter for letter in string]
+#parted = [letter for letter in string]
 
 def transferBin(string): 
 	# vi lager variabel 'l' til en liste av string
 	l = list(string)
+	outstring = ""
 	# itererer over l for å finne c.
 	i = 0 
 	for c in l:
 		# skriv ut den binære representasjon av hvert tegn (bruk ascii8Bin funksjonen din)
-		print "Den binære representasjonen for '%s' i ordet ditt er %s" % (parted[i], ascii8Bin(c))
+		print "Den binære representasjonen for '%s' i ordet ditt er %s" % (c, ascii8Bin(c))
+		outstring += ascii8Bin(c) + '\n'
 		i = i + 1
+	return outstring
 # bruk funksjonen vår
 transferBin(string)
 
@@ -172,8 +175,11 @@ def ascii2Hex(c):
     
 def transferHex(string):
     l2 = list(string)
+    outstring = ""
     for c in l2:
         print "Den heksadesimale representasjonen for bokstavene i ordet ditt er %s" % ascii2Hex(c)
+        outstring += ascii2Hex(c)
+    return outstring
         
 transferHex(string)
 
@@ -225,13 +231,30 @@ print unicodeBin(char)
 #
 #
 
-			"""OPPGAVE 9 HER"""
+import psutil
 
+def sysInfo():
+	memory = psutil.virtual_memory().total
+	disk = psutil.disk_usage('/').total
 
+	print "\nDatamaskinen din har {0} bits med ram.\n" .format(memory)
+	print "Datamaskinen din har en harddisk på {0} bits.\n" .format(disk)
+sysInfo() 
 
+"""
+Hard drive capacity finnes ved å kjøre kommandoen psutil.disk_usage('/').
+Det vil da returneres hvor mye plass man har, hvor mye som er brukt, og prosentandel.
 
+Amount of RAM finnes ved å kjøre kommandoen psutil.virtual_memory(). 
+Det vil da returneres hvor mye minne man har i bits, hvor mye som brukes i bits, og prosentandel.
 
+For å gjøre begge disse lettere å lese har vi lagt til .total etter kommandoene. 
+Det vil da bare returneres hvor mange bits hver enkelt av de to inneholder.
 
+Dette er dessverre de enesten to man kan finne via psutil, enkelt og greit siden
+modulen ikke har støtte for å finne resten. Det er heller ikke mulig å lage en test,
+siden returverdiene vil være forskjellig fra maskin til maskin.
+"""
 
 
 
@@ -241,9 +264,10 @@ def test():
 	assert bitOr(0, 1) == 1
 	assert ascii8Bin('a') == '01100001'
 	assert ascii8Bin('A') == '01000001'
-	assert transferBin('l') == '6c'
+	assert transferBin('Hi') == '01001000\n01101001\n'
+	assert transferHex('J') == '4a'
 	assert unicodeBin('å') == '11000011 10100101'
-	#Implementer tester her
+
 	return "Testene er fullført uten feil."
 
 
