@@ -134,7 +134,7 @@ Oppgaver
 
 		ELF = Executable and Linkable Format. En executable binary.
 
-		Vi bruker elf for å finne filformat 
+		0x7F som vi får ut er ELF sine "magic numbers", altså det staver ut "E L F"
 
 	i. Oppgave 3 andre gang:
 		>>> print bin 
@@ -153,8 +153,12 @@ Oppgaver
 
 5. Sjekk ELF spesifikasjon og finn ut hvilken Python funksjon du kan bruke for å
 illustrere best, det som står i ELF spesifikasjonen
-	____SVAR__HER_____
-
+	
+	f.read()     Feks om vi bruker f.read(4) på a.out får vi de 4 første figurene i filen, som er
+	ELF magic numbers: 0x7F (E L F). Det finnes og tredjeparts verktøy/moduler, som imp, som lar deg ekstrahere
+	magic numbers.
+	
+	
 6.
 	a. 
 	Tallene vi finner representerer ELF sine "magic numbers". om vi bruker hexbin og ord funksjonene til å konvertere tallene vi får finner vi: 
@@ -214,10 +218,6 @@ illustrere best, det som står i ELF spesifikasjonen
 	>>> ls -l /proc/<pid>/fd
 	Dette gir oss en detaljer over åpne prosesser. Vi aksesserer de med proc og bruker <PID> som er en process identifier. PID brukes aktivt for å gi unike IDer til åpne prosesser. 
 
-	Oppgave 10:
-	I python shell kan vi bruke metoden .close() eller .truncate(). Disse vil lukke en fil som kjører. Det er vanlig å ville lukke filer som vi bruker i programmering så ikke alle processene skal bruke minne mens vi gjør andre ting. 
-
-	I vårt eksempel bruker vi f.close() for å lukke f. 
 
 10.
 	I python shell kan vi bruke metoden .close() eller .truncate(). Disse vil lukke en fil som kjører. Det er vanlig å ville lukke filer som vi bruker i programmering så ikke alle processene skal bruke minne mens vi gjør andre ting. 
@@ -249,4 +249,9 @@ Lager vi en .s fil
 
 Dette returnerer helloworld som en kompilert fil. Vi ser når vi kjører gcc --h at -S lager en compiled only fil som ikke kjører assemble eller link. 
 
+
+Kilder:
+https://www3.ntu.edu.sg/home/ehchua/programming/cpp/gcc_make.html#zz-1.4
+http://en.wikipedia.org/wiki/Executable_and_Linkable_Format
+https://docs.python.org/2/library/imp.html
 

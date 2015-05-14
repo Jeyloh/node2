@@ -77,7 +77,7 @@ def bitXor(x, y):
 	return x^y
 print bitXor(0, 1)
 
-#
+#https://docs.python.org/2/tutorial/datastructures.html
 #  Oppgave 4
 #    bitOr - x|y
 #    Eksempel: bitOr(0, 1) = 1
@@ -207,7 +207,7 @@ def unicodeBin(character):
 	for n in range (len(format(character))):
 		temp.append("{0:08b}".format(utf8_byte_array[n]))
 		# konverterer listen til en string bestående av den binære koden til symbolet
-		uni_bin = ' '.join(temp)
+		uni_bin = ''.join(temp)
 	return uni_bin
 print unicodeBin(char)
 
@@ -251,7 +251,7 @@ Det vil da returneres hvor mye minne man har i bits, hvor mye som brukes i bits,
 For å gjøre begge disse lettere å lese har vi lagt til .total etter kommandoene. 
 Det vil da bare returneres hvor mange bits hver enkelt av de to inneholder.
 
-Dette er dessverre de enesten to man kan finne via psutil, enkelt og greit siden
+Dette er dessverre de eneste to man kan finne via psutil, enkelt og greit siden
 modulen ikke har støtte for å finne resten. Det er heller ikke mulig å lage en test,
 siden returverdiene vil være forskjellig fra maskin til maskin.
 """
@@ -266,7 +266,7 @@ def test():
 	assert ascii8Bin('A') == '01000001'
 	assert transferBin('Hi') == '01001000\n01101001\n'
 	assert transferHex('J') == '4a'
-	assert unicodeBin('å') == '11000011 10100101'
+	assert unicodeBin('j') == '01101010'
 
 	return "Testene er fullført uten feil."
 
@@ -274,4 +274,5 @@ def test():
 # Bruk denne funksjonen for å vise at alle testene er kjørt feilfritt
 print test()
 		
+
 
