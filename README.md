@@ -54,5 +54,7 @@ poker.py inneholder et pokerspill.
 
 ## /lab5
 
-lab5.py inneholder teoribesvarelser.
+lab5.txt inneholder teoribesvarelser.
+
+Resten av filene ble laget under utførelse av oppgavene til lab5. 
 
