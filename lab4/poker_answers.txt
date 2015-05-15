@@ -1,3 +1,4 @@
+Poker.py
 
 In our git repository we use poker.py and udacity_poker.py. If we compare timer() to udacity_pokers timer we'll get information about how fast the script runs.
 The script uses play_poker() as a main gatherer function to print out all hands in play, and then print out the winner hand. The only bug is that if two hands 

@@ -7,6 +7,7 @@
 # a lot in network communiation with python
 from socket import *
 
+
 # Sets the serverName. A DNS lookup will be performed and fetch the IP address.
 serverName = 'localhost'
 # Sets the serverPort to 12 000

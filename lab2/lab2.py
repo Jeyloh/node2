@@ -6,6 +6,7 @@
 #	Ressurser: 
 #	https://docs.python.org/2/tutorial/datastructures.html +\
 #	http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/
+#	https://github.com/tmackenzie/roman/blob/master/roman/convert.py 
 #
 #	Testet i Python versjon 2.7.6
 
@@ -21,32 +22,13 @@ ROMAN_GROUP_RE = re.compile('^([M]{0,3})([DCM]*)([XLC]*)([IVX]*)$')
 
 # Sett en int verdi som skal gjøres om til roman
 def int_to_roman(input):
-    """
-       given an integer, input, that is greater than 0 and less than, 4000
-       return its modern roman numeral represenation
-    """
+
     # Visst input ikke er mellom 0 og 4000 får vi en feilmelding
     if not 0 < input < 4000:
         raise ValueError("input must be between 1 and 3999")
 
     result = []
 
-    """
-        significant, is the significant digit of input..
-        used to lookup dict.
-            1 = ones.
-            2 = tens.
-            3 = hundreds
-            4 = thousands.
-        factor, is the whole number for the current significant digit.
-        used to calculate, count.
-            example, input = 101
-            - factor = 100.
-        count, the number of times input is divisible by factor.
-        used to lookup the arabic, romans tuple.
-            example, input = 101, factor = 100
-            - count = 1
-    """
     # Forklaring på math.log10(x):
     # Log base 10, also known as the common logarithm or decadic logarithm, is the logarithm 
     # to the base 10. The common logarithm of x is the power to which the number 10 must be 
@@ -82,10 +64,7 @@ def int_to_roman(input):
 
 
 def roman_to_int(input):
-    """
-        Given a string that represents a roman numeral, then,
-        return its integer value
-    """
+
     # Setter alle bokstavene til uppercase
     input = input.upper()
 
@@ -198,15 +177,3 @@ def test():
     print "Test passed!"
 
 test()
-
-    
-
-
-"""
-resources = +\
-     +\
-    +\
-    +\
-    +\
-    +\
-"""
