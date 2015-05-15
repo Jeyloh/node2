@@ -9,7 +9,11 @@ refererer her til den 6. utgaven). Hele kapittel 1 og 2 kan være aktuelt å
 studere for å få en bedre forståelse av grunnprinsipper for
 nettverkskommunikasjon.
 
-	Grunnoppsettet er der. Sockets er satt til UDP og bruker like porter for å fullføre oppgaven som er å sende over strings til hverandre.
+	Grunnoppsettet er der. Sockets er satt til UDP og bruker like porter for å fullføre oppgaven som er å sende over strings til hverandre. 
+
+	Kjennetegnet for UDP er at det er mindre sikkert enn TCP. I TCP sendes pakken til server, tilbake til client også til server igjen som en sikkerhetssjekk. Det er vanlig å bruke dette i protokoller som krever ekstra sikkerhet, et eksempel er nettbank. 
+
+	UDP er heller vanlig å bruke i streaming og torrent sammenhenger. Det krever ikke så mye sikkerhet og er raskere. 
 
 
 2. Basert på kodeeksempler sett opp en kodebase for en klient-tjener
@@ -27,8 +31,6 @@ https://www.python.org/dev/peps/pep-0008/).
 	modifiedMessage = message.decode('utf-8').upper().encode('utf-8')
 
 
-
-
 3. Finn ut hvordan blir bokstavene i meldingen presentert (binært) når de
 sendes over fra den ene prosessen (klienten) til den andre prosessen
 (tjeneren). For å gjøre det, må dere installere Wireshark.
@@ -36,18 +38,46 @@ sendes over fra den ene prosessen (klienten) til den andre prosessen
 bokstav) og studer om det finnes en sammenheng mellom den binære
 presentasjonen av små og store bokstaver? Forklar.
 
+	Når bokstavene sendes over gjøres de om til bits. 
+	Representasjonen av:
+
+	a = 01100001
+	A = 01000001
+
+	
 
 4. Sjekk om applikasjonen fungerer for tegn utover ASCII tegnsettet og forklar
 hva som skjer. Gjør om applikasjonen slik at den kan overføre hvilke som
-helst tegn fra UNICODE karaktersettet. Finnes det en sammenheng mellom
+helst tegn fra utf8 karaktersettet. Finnes det en sammenheng mellom
 den binære representasjonen for små og store bokstaver også i dette tilfelle?
 Forklar.
+
+	Når vi går utover ASCII tegnsettet og bruker utf8 krever det ofte flere bytes. Vi ser at 'Æ' er representert med 2 bytes, altså 16 bits. Noen tegn fra utf8 krever 3 bytes. Her ser vi at Devanagari Sign Nukta tegnet krever 3 bytes:
+		http://www.fileformat.info/info/unicode/char/093c/index.htm
+
+	æ = 11000011 10100110
+	Æ = 11000011 10000110
+
+	Det vi ser er at den eneste forskjellen ligger i 32 bits plassen der små bokstaver bruker 1, mens store bokstaver bruker 0. 
+
+	'Æ' er et unicode tegn som representeres annerledes i form av at istedenfor 1 byte krever den 2 bytes. Forskjellen på store og små bokstaver er fortsatt at 32 bits plassen flippes fra 1 til 0 på stor til små 'æ'. 
 
 
 5. Implementer din egen metode i for overføring fra små til store bokstaver
 basert på manipulasjon av den binære representasjonen til tegn. Bruk
 rutiner fra LAB1 (operasjoner på bit). Implementer tester for alle rutiner i en
 egen funksjon test() ved bruk av assert setninger.
+
+def unicodeBin(character):
+	utf8_byte_array = bytearray(format(character))
+	temp = []
+	# Itererer gjennom det formaterte unicodesumbolet
+	for n in range (len(format(character))):
+		temp.append("{0:08b}".format(utf8_byte_array[n]))
+		# konverterer listen til en string bestående av den binære koden til symbolet
+		uni_bin = ''.join(temp)
+	return uni_bi
+
 
 
 6. Bruk funksjoner fra deres “romerske” modulen for å implementere denne
@@ -56,6 +86,9 @@ grensesnitt for INNDATA (i klienten). Her kan dere bruke den innebygde
 funksjonen i Python raw_input(). Pass på at dere tester for alle eventuelle
 feil, som en kommandolinje bruker potensielt kan gjøre.
 
+	ikke gjort.
 
 7. Burde dere bruke TCP protokollen for dere applikasjon i dette tilfelle? Forklar
 hvorfor, eventuelt hvorfor ikke.
+
+	Jeg vil ikke bruke TCP protokollen den krever mer av internettet. Sikkerheten trengs ikke til oppgaven vi har fått. UDP er på en annen side mye raskere og sender bare pakker uten å sikkerhetssjekke at alt stemmer. 
