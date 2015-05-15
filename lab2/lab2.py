@@ -2,7 +2,12 @@
 #
 #   Author:     Jorgen Lybeck Hansen, Elaine Sajets, Daniel Eide, Bastian Strang, Jonas Dam, Christian Thorne
 #   Group:      Node
+#	
+#	Ressurser: 
+#	https://docs.python.org/2/tutorial/datastructures.html +\
+#	http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/
 #
+#	Testet i Python versjon 2.7.6
 
 import re
 import math
@@ -199,8 +204,7 @@ test()
 
 """
 resources = +\
-    https://docs.python.org/2/tutorial/datastructures.html +\
-    http://turner.faculty.swau.edu/mathematics/materialslibrary/roman/ +\
+     +\
     +\
     +\
     +\
