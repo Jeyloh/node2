@@ -232,10 +232,14 @@ print unicodeBin(char)
 #
 
 import psutil
+import platform
 
 def sysInfo():
+
 	memory = psutil.virtual_memory().total
 	disk = psutil.disk_usage('/').total
+	print "OS: " +platform.uname()[0]
+	print "Username: " +platform.uname()[1]
 
 	print "\nDatamaskinen din har {0} bits med ram.\n" .format(memory)
 	print "Datamaskinen din har en harddisk på {0} bits.\n" .format(disk)
@@ -254,8 +258,10 @@ Det vil da bare returneres hvor mange bits hver enkelt av de to inneholder.
 Dette er dessverre de eneste to man kan finne via psutil, enkelt og greit siden
 modulen ikke har støtte for å finne resten. Det er heller ikke mulig å lage en test,
 siden returverdiene vil være forskjellig fra maskin til maskin.
-"""
 
+For å finne ut de resterende punktene, må man importere modulen platform, som vi har gjort over.
+Man kan da finne ut navn på datamaskinen, og hvilket OS den kjører.
+"""
 
 
 def test():
@@ -273,6 +279,18 @@ def test():
 
 # Bruk denne funksjonen for å vise at alle testene er kjørt feilfritt
 print test()
+
+#Kilder:
+
+"""
+https://pypi.python.org/pypi/psutil
+https://code.google.com/p/psutil/wiki/Documentation
+https://docs.python.org/2/library/platform.html
+http://www.python-course.eu/sys_module.php
+https://docs.python.org/3/reference/import.html
+http://stackoverflow.com/questions/28266984/python-script-how-to-import-system	
+"""
+
 		
 
 
